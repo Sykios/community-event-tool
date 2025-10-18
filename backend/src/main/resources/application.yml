@@ -1,0 +1,36 @@
+# Spring Boot Configuration
+spring:
+  application:
+    name: community-event-tool
+
+  # H2 Database (local dev)
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # JPA / Hibernate
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# Server Port
+server:
+  port: 8080
+
+# For production, override with application-prod.yml:
+# spring.datasource.url=jdbc:postgresql://localhost:5432/communityevent
+# spring.datasource.username=your_username
+# spring.datasource.password=your_password
+# spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
